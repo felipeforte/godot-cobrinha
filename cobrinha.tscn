@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bralaj66bhih2"]
+
+[ext_resource type="Script" path="res://cobrinha.gd" id="1_5k030"]
+[ext_resource type="PackedScene" uid="uid://ogty6r132bnn" path="res://cobra_cabeça.tscn" id="2_tkeg0"]
+
+[node name="cobrinha" type="CharacterBody2D"]
+script = ExtResource("1_5k030")
+
+[node name="cobra_cabeça" parent="." instance=ExtResource("2_tkeg0")]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ogty6r132bnn"]
+
+[ext_resource type="Script" path="res://cobra_cabeça.gd" id="1_750yy"]
+[ext_resource type="Texture2D" uid="uid://bvvc753n6fcls" path="res://cobra_cabeça.png" id="2_ow5qa"]
+
+[node name="cobra_cabeça" type="CharacterBody2D"]
+script = ExtResource("1_750yy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_ow5qa")
