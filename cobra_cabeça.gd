@@ -2,10 +2,9 @@ extends CharacterBody2D
 
 const vmax = 300
 const friction = 600
-const accel = 500
+const accel = 2500
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var parent = self.get_parent()
 
 var input = Vector2.ZERO
 
@@ -27,3 +26,5 @@ func get_input():
 	input.x = Input.get_axis("ui_left", "ui_right")
 	input.y = Input.get_axis("ui_up", "ui_down")
 	return input.normalized()
+
+
