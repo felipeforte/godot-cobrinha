@@ -1,7 +1,7 @@
 extends Node2D
 
-const width = 1152
-const height = 1152
+const width = 1000
+const height = 600
 const comida = preload("res://comida.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +16,7 @@ func _process(delta):
 
 func _on_timer_timeout():
 	var nova_comida = comida.instantiate()
-	add_child(nova_comida)
 	nova_comida.position.x = randi() % width
 	nova_comida.position.y = randi() % height
+	print(nova_comida)
+	add_child(nova_comida)

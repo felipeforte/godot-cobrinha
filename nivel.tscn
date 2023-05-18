@@ -1,20 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw2oslpi8fh32"]
+[gd_scene load_steps=3 format=3 uid="uid://dw2oslpi8fh32"]
 
 [ext_resource type="Script" path="res://nivel.gd" id="1_lvqr4"]
-[ext_resource type="PackedScene" uid="uid://brtcnxnrao7sn" path="res://comida.tscn" id="2_gtlyv"]
 [ext_resource type="PackedScene" uid="uid://bralaj66bhih2" path="res://cobrinha.tscn" id="2_n5dke"]
 
 [node name="nivel" type="Node2D"]
 script = ExtResource("1_lvqr4")
-
-[node name="RigidBody2D" parent="." instance=ExtResource("2_gtlyv")]
-position = Vector2(555, 184)
-gravity_scale = 0.0
 
 [node name="cobrinha" parent="." instance=ExtResource("2_n5dke")]
 position = Vector2(217, 149)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

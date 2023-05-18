@@ -6,14 +6,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2vlw2"]
 radius = 13.1529
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="comida" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_38iyx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.075, 0.075)
 texture = ExtResource("1_wrdlp")
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.075, 0.075)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_2vlw2")

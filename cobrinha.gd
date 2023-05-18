@@ -10,9 +10,10 @@ func _physics_process(delta):
 
 func add_body():
 	var body_new = body.instantiate()
-	add_child(body_new)
 	if bodies.size() == 0:
 		body_new.parent = head
 	else:
 		body_new.parent = bodies.back()
+	body_new.position = body_new.parent.position
+	add_child(body_new)
 	bodies.append(body_new)

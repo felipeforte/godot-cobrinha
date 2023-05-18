@@ -7,6 +7,7 @@
 radius = 32.6956
 
 [node name="cobra_cabeça" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_750yy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
