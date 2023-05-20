@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ogty6r132bnn"]
+[gd_scene load_steps=4 format=3 uid="uid://3deqvxbryabb"]
 
-[ext_resource type="Script" path="res://cobra_cabeça2.gd" id="1_v63jl"]
-[ext_resource type="Texture2D" uid="uid://bvvc753n6fcls" path="res://cobra_cabeça.png" id="2_ow5qa"]
+[ext_resource type="Script" path="res://cobra_cabeça2.gd" id="1_v0gyu"]
+[ext_resource type="Texture2D" uid="uid://bvvc753n6fcls" path="res://cobra_cabeça.png" id="2_bl0l0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_507tm"]
 radius = 38.0526
 
 [node name="cobra_cabeça" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_v63jl")
+script = ExtResource("1_v0gyu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_ow5qa")
+texture = ExtResource("2_bl0l0")
 
 [node name="Area2D" type="Area2D" parent="."]
 

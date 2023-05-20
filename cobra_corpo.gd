@@ -7,5 +7,8 @@ func _physics_process(delta):
 	follow_parent()
 
 func follow_parent():
-	self.global_transform.origin = lerp(self.global_transform.origin, parent.global_transform.origin, get_physics_process_delta_time()*8)
-	self.rotation_degrees = lerp(self.rotation_degrees, parent.rotation_degrees, get_physics_process_delta_time()*5)
+	if (abs(position.x-parent.position.x)<15 && abs(position.y-parent.position.y)<15):
+		pass
+	else:
+		self.global_transform.origin = lerp(self.global_transform.origin, parent.global_transform.origin, get_physics_process_delta_time()*10)
+		self.rotation_degrees = lerp(self.rotation_degrees, parent.rotation_degrees, get_physics_process_delta_time()*7.5)

@@ -24,16 +24,16 @@ func _physics_process(delta):
 
 ## Recebe input e retorna um Vector2
 func get_input():
-	input.x = Input.get_axis("ui_left", "ui_right")
-	input.y = Input.get_axis("ui_up", "ui_down")
+	input.x = Input.get_axis("p2_left", "p2_right")
+	input.y = Input.get_axis("p2_up", "p2_down")
 	return input.normalized()
 
 
 
 ## Função de comer a comida
 func _on_area_2d_body_entered(body):
-	if (body.is_in_group("comida")):
+	if (body.name == "comida"):
 		parent.add_body()
 		body.queue_free()
 	else:
-		print(body.name)
+		print(body)
