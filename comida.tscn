@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dpgv221qrr1rx" path="res://comida.png" id="1_wrdlp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ioh76"]
-radius = 11.0
+radius = 18.0278
 
 [node name="comida" type="RigidBody2D" groups=["comida"]]
 gravity_scale = 0.0
@@ -14,5 +14,12 @@ script = ExtResource("1_38iyx")
 shape = SubResource("CircleShape2D_ioh76")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.075, 0.075)
+scale = Vector2(0.140625, 0.140625)
 texture = ExtResource("1_wrdlp")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -7.0
+offset_top = -12.0
+offset_right = 33.0
+offset_bottom = 14.0
+text = "-1"

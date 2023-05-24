@@ -6,9 +6,9 @@ var bodies: Array = []
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("debug_new"):
-		add_body()
+		add_body(1)
 
-func add_body():
+func add_body(pesoComida):
 	var body_new = body.instantiate()
 	if bodies.size() == 0:
 		body_new.parent = head

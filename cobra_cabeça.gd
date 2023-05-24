@@ -33,7 +33,7 @@ func get_input():
 ## Função de comer a comida
 func _on_area_2d_body_entered(body):
 	if (body.is_in_group("comida")):
-		parent.add_body()
+		parent.add_body(body.peso)
 		body.queue_free()
 	else:
 		print(body.name)

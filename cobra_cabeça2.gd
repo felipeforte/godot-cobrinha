@@ -32,8 +32,9 @@ func get_input():
 
 ## Função de comer a comida
 func _on_area_2d_body_entered(body):
-	if (body.name == "comida"):
+	if (body.is_in_group("comida")):
 		parent.add_body()
 		body.queue_free()
 	else:
-		print(body)
+		#print(body)
+		pass
