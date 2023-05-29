@@ -8,8 +8,18 @@ const accel = 2000
 
 var input = Vector2.ZERO
 
+func _enter_tree():
+	var id = PlayerData.identifier
+	set_multiplayer_authority(str(id).to_int())
+	
+	print("Enter: ", id)
+	
+func _ready():
+	if not is_multiplayer_authority():	return
 
 func _physics_process(delta):
+	if not is_multiplayer_authority():	return
+	
 	input = get_input()
 	
 	if input == Vector2.ZERO:
@@ -28,10 +38,10 @@ func get_input():
 	input.y = Input.get_axis("ui_up", "ui_down")
 	return input.normalized()
 
-
-
 ## Função de comer a comida
 func _on_area_2d_body_entered(body):
+	if not is_multiplayer_authority():	return
+	
 	if (body.is_in_group("comida")):
 		parent.add_body(body.peso)
 		body.queue_free()

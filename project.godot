@@ -15,6 +15,10 @@ run/main_scene="res://nivel.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerData="*res://Player/PlayerData.gd"
+
 [input]
 
 debug_new={

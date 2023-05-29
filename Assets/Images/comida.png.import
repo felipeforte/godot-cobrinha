@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw21n3fxisg78"
-path="res://.godot/imported/comida_negativa.png-8b4209a3d3b1693412b335288e2adc7d.ctex"
+uid="uid://dg3wnuycyd8kx"
+path="res://.godot/imported/comida.png-ebb60896db94d58768e3b3a7346625e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://comida_negativa.png"
-dest_files=["res://.godot/imported/comida_negativa.png-8b4209a3d3b1693412b335288e2adc7d.ctex"]
+source_file="res://Assets/Images/comida.png"
+dest_files=["res://.godot/imported/comida.png-ebb60896db94d58768e3b3a7346625e2.ctex"]
 
 [params]
 

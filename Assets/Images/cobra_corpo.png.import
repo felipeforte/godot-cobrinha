@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjr0h18bnxe0c"
-path="res://.godot/imported/cobra_corpo.png-92168b78ec182bb41d905728df9581cd.ctex"
+uid="uid://d3ntf2cimjhic"
+path="res://.godot/imported/cobra_corpo.png-bfe86e55a2fa7f402f5d240a80ffcfa4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cobra_corpo.png"
-dest_files=["res://.godot/imported/cobra_corpo.png-92168b78ec182bb41d905728df9581cd.ctex"]
+source_file="res://Assets/Images/cobra_corpo.png"
+dest_files=["res://.godot/imported/cobra_corpo.png-bfe86e55a2fa7f402f5d240a80ffcfa4.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvvc753n6fcls"
-path="res://.godot/imported/cobra_cabeça.png-85be597391997ead1b8263d0f0275fe3.ctex"
+uid="uid://dgeh481a32cad"
+path="res://.godot/imported/cobra_cabeça.png-376b5267cc2881e2341eb721bf227441.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cobra_cabeça.png"
-dest_files=["res://.godot/imported/cobra_cabeça.png-85be597391997ead1b8263d0f0275fe3.ctex"]
+source_file="res://Assets/Images/cobra_cabeça.png"
+dest_files=["res://.godot/imported/cobra_cabeça.png-376b5267cc2881e2341eb721bf227441.ctex"]
 
 [params]
 

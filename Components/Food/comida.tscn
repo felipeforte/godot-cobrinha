@@ -1,21 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://brtcnxnrao7sn"]
+[gd_scene load_steps=4 format=3 uid="uid://dk4s6rrwqeaxq"]
 
-[ext_resource type="Script" path="res://comida.gd" id="1_38iyx"]
-[ext_resource type="Texture2D" uid="uid://dpgv221qrr1rx" path="res://comida.png" id="1_wrdlp"]
+[ext_resource type="Script" path="res://Components/Food/comida.gd" id="1_14ncb"]
+[ext_resource type="Texture2D" uid="uid://dg3wnuycyd8kx" path="res://Assets/Images/comida.png" id="2_opjd0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ioh76"]
 radius = 18.0278
 
 [node name="comida" type="RigidBody2D" groups=["comida"]]
 gravity_scale = 0.0
-script = ExtResource("1_38iyx")
+script = ExtResource("1_14ncb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ioh76")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.140625, 0.140625)
-texture = ExtResource("1_wrdlp")
+texture = ExtResource("2_opjd0")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -7.0
