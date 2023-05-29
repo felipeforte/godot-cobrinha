@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerData="*res://Player/PlayerData.gd"
+Utils="*res://Utils.gd"
+Events="*res://Events.gd"
 
 [input]
 

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bff13n4jknjim"]
+[gd_scene load_steps=3 format=3 uid="uid://bff13n4jknjim"]
 
 [ext_resource type="Script" path="res://nivel.gd" id="1_lvqr4"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yxbsw"]
+properties/0/path = NodePath("Timer:script")
+properties/0/spawn = true
+properties/0/sync = true
 
 [node name="nivel" type="Node2D"]
 script = ExtResource("1_lvqr4")
@@ -29,38 +34,54 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Menu Principal"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HostButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HostButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Criar Sala"
 
-[node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Entrar"
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+alignment = 1
 
-[node name="AddressEntry" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+[node name="AddressEntry" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+text = "localhost"
 placeholder_text = "Informe o endereço da sala"
 alignment = 1
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+[node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Entrar"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Sair"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Player/cobrinha.tscn")
+_spawnable_scenes = PackedStringArray("res://Player/cobrinha.tscn", "res://Components/Food/comida.tscn")
 spawn_path = NodePath("..")
 
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_yxbsw")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="text_changed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/HBoxContainer/AddressEntry" to="." method="_on_address_entry_text_changed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/HBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]

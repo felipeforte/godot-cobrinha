@@ -1,4 +1,5 @@
 MultiplayerSynchronizer
+HBoxContainer
 Camera2D
 MultiplayerSpawner
 LineEdit
