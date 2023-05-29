@@ -46,12 +46,15 @@ func _on_join_button_pressed():
 	main_menu.hide()
 	enet_peer.create_client("localhost", PORT)
 	multiplayer.multiplayer_peer = enet_peer
+	
+	add_player(multiplayer.get_unique_id())
 
 func _on_quit_button_pressed():
 	get_tree().quit()
 
 func add_player(peer_id):
 	var player = Player.instantiate()
-	PlayerData.identifier = str(peer_id)
+	player.name = str(peer_id)
+	player.identifier = str(peer_id)
 	add_child(player)
-	print("Entrou na sala: ", PlayerData.identifier)
+	print("Entrou na sala: ", player.identifier)
