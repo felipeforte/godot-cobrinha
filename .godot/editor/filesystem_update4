@@ -12,3 +12,4 @@ res://Player/cobra_cabeca.gd
 res://Player/PlayerData.gd
 res://Utils.gd
 res://Events.gd
+res://Components/Food/comida.gd

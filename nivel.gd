@@ -15,36 +15,41 @@ var enet_peer = ENetMultiplayerPeer.new()
 
 var currentPlayer
 
-func _ready():
-	Events.connect("food_added", _on_food_added)
-
 func _on_timer_timeout():
-	generate_food.rpc()
+	if multiplayer.is_server():
+		generate_food()
 
-func _on_food_added(food):
-	spawn_food(food)
-
-@rpc("call_remote")
-func generate_food():
+@rpc("call_local")
+func spawn_food(foodName, positionX, positionY, foodHeight):
 	var nova_comida = comida.instantiate()
-	nova_comida.peso = randi_range(-1, 1)
-	
-	if nova_comida.peso == 0:
-		nova_comida.peso = 1
-	
-	nova_comida.name = "comida_%s" % Utils.generate_random_string(10)
-	nova_comida.position.x = randi() % width
-	nova_comida.position.y = randi() % height
-	nova_comida.setLabelText(nova_comida.peso)
-	
-	PlayerData.universalFoods.append(nova_comida)
-	
-	Events.emit_signal("food_add", nova_comida)
-	
-	print(nova_comida.name)
+	#nova_comida.name = foodName
+	nova_comida.position.x = positionX
+	nova_comida.position.y = positionY
+	nova_comida.peso = foodHeight
+	nova_comida.setLabelText(foodHeight)
+	add_child(nova_comida)
+	print("Spawn food to: %s" % currentPlayer.name)
 
-func spawn_food(food):
-	add_child(food)
+func generate_food():
+	if multiplayer.is_server() and multiplayer.get_peers().size() > 0:
+				
+		var nova_comida = comida.instantiate()
+		var foodName = "comida_%s" % Utils.generate_random_string(10)
+		var positionX = randi() % width
+		var positionY = randi() % height
+		var foodHeight = randi_range(-1, 1)
+		
+		if foodHeight == 0:
+			foodHeight = 1
+		
+		nova_comida.name = foodName
+		nova_comida.position.x = positionX
+		nova_comida.position.y = positionY
+		nova_comida.setLabelText(foodHeight)
+		
+		add_child(nova_comida)
+		for peer_id in multiplayer.get_peers():
+			spawn_food.rpc_id(peer_id, foodName, positionX, positionY, foodHeight)
 
 func _on_host_button_pressed():
 	main_menu.hide()
@@ -56,6 +61,7 @@ func _on_host_button_pressed():
 	
 	add_player(multiplayer.get_unique_id())
 	
+	#autodiscover servers on lan
 	#upnp_setup()
 
 
@@ -76,9 +82,6 @@ func add_player(peer_id):
 	currentPlayer.name = str(peer_id)
 	currentPlayer.identifier = str(peer_id)
 	add_child(currentPlayer)
-	print("Entrou na sala: ", currentPlayer.identifier)
-	
-	print(getConnectedPlayers())
 
 func remove_player(peer_id):
 	var player = get_node_or_null(str(peer_id))
@@ -108,13 +111,3 @@ func upnp_setup():
 	"UPNP Port Mapping Failed! Error %s" % map_result)
 	
 	print("Success! Join Address: %s" % upnp.query_external_address()[randi() % 10])
-
-func getConnectedPlayers() -> Array:
-	var players = []
-	var peerCount = enet_peer
-	
-#	for i in range(peerCount):
-#		var peer = multiplayer.get_peer(i)
-#		if peer.is_connected_to_host(): players.append(peer.get_packet_ip())
-	
-	return players

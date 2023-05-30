@@ -1,17 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bff13n4jknjim"]
+[gd_scene load_steps=2 format=3 uid="uid://bff13n4jknjim"]
 
 [ext_resource type="Script" path="res://nivel.gd" id="1_lvqr4"]
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yxbsw"]
-properties/0/path = NodePath("Timer:script")
-properties/0/spawn = true
-properties/0/sync = true
 
 [node name="nivel" type="Node2D"]
 script = ExtResource("1_lvqr4")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.5
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -76,9 +71,6 @@ text = "Sair"
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Player/cobrinha.tscn", "res://Components/Food/comida.tscn")
 spawn_path = NodePath("..")
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_yxbsw")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
