@@ -6,43 +6,35 @@ const ACCELERATION = 2000
 
 var bodies: Array = []
 
-var INPUT 
+var INPUT = Vector2.ZERO
 
 var identifier
 
-var head
-var body
+@onready var head := $cobra_cabeca
+@onready var body := preload("res://Player/cobra_corpo.tscn")
+@onready var multiplayer_sync := $MultiplayerSynchronizer
 
 func _enter_tree():
-	if identifier != null:
-		set_multiplayer_authority(str(identifier).to_int())	
-		print("Enter: ", identifier)
-		INPUT = Vector2.ZERO
-		head = $cabeca
-		body = $corpo
-		add_body(0)
+	set_multiplayer_authority(str(name).to_int())	
+	print("Enter: ", name)
 
-func _ready():
-	if not is_multiplayer_authority():	return
-
-
-func _physics_process(delta):
-	follow_parent()
-	
-	INPUT = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
-	
-	if INPUT == Vector2.ZERO:
-		if velocity.length() > (FRICTION * delta):
-			velocity -= velocity.normalized() * (FRICTION * delta)
-		else:
-			velocity = Vector2.ZERO
-	else:
-		velocity += (INPUT * ACCELERATION * delta)
-		velocity = velocity.limit_length(MAX_VELOCITY)
-	
-	if not is_multiplayer_authority():	return
-	
-	move_and_slide()
+func _physics_process(delta): pass
+#	follow_parent()
+#
+#	INPUT = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
+#
+#	if INPUT == Vector2.ZERO:
+#		if velocity.length() > (FRICTION * delta):
+#			velocity -= velocity.normalized() * (FRICTION * delta)
+#		else:
+#			velocity = Vector2.ZERO
+#	else:
+#		velocity += (INPUT * ACCELERATION * delta)
+#		velocity = velocity.limit_length(MAX_VELOCITY)
+#
+#	if not is_multiplayer_authority():	return
+#
+#	move_and_slide()
 
 func add_body(pesoComida):
 	if not is_multiplayer_authority():	return
@@ -59,21 +51,4 @@ func add_body(pesoComida):
 	
 	body_new.position = body_new.parent.position
 	bodies.append(body_new)
-	add_child(body_new)
-
-func _on_area_2d_2_body_entered(body):
-	if not is_multiplayer_authority():	return
-	
-	if (body.is_in_group("comida")):
-		add_body(body.peso)
-		body.queue_free()
-	else:
-		print(body.name)
-
-func follow_parent():
-	if (abs(position.x-self.position.x)<15 && abs(position.y-self.position.y)<15):
-		pass
-	else:
-		body.global_transform.origin = lerp(body.global_transform.origin, self.global_transform.origin, get_physics_process_delta_time()*10)
-		body.rotation_degrees = lerp(body.rotation_degrees, self.rotation_degrees, get_physics_process_delta_time()*7.5)
-
+	$Node.add_child(body_new)
