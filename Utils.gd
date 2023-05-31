@@ -28,3 +28,36 @@ func generate_random_string(length: int) -> String:
 		randomString += chars.substr(randomIndex, 1)
 	
 	return randomString
+	
+func generate_random_number(min,max):
+	return randi_range(min,max)
+
+func generate_calc():
+	var number1 = randi() % 26  # Gera um número inteiro aleatório entre 0 e 99
+	var number2 = randi() % 26  # Gera um número inteiro aleatório entre 0 e 99
+	
+	
+	var symbols = ["+", "-", "*", "/"]
+	var symbol = symbols[randi() % symbols.size()] # Escolhe um símbolo de operação aleatório
+	var result = 0
+
+	
+	match symbol:
+		"+":
+			result = number1 + number2
+			print("Resultado:", result)
+		"-":
+			result = number1 - number2
+			print("Resultado:", result)
+		"*":
+			result = number1 * number2
+			print("Resultado:", result)
+		"/":
+			#do:
+			#	number2 = randi() % 26
+			#while (number2 % 2 != 0)
+			
+			result = number1 / number2
+			print("Resultado:", result)
+	
+	return [number1, number2, symbol, result]

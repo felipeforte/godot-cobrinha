@@ -4,9 +4,15 @@ const width = 1000
 const height = 600
 
 @onready var timer : Timer = $Timer
+
+@onready var timerBatalha : Timer = $TimerBatalha
+
+
 @onready var main_menu = $CanvasLayer/MainMenu
 @onready var join_button = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/HBoxContainer/JoinButton
 @onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/HBoxContainer/AddressEntry
+
+var simultaneous_scene = preload("res://Batalha.tscn").instantiate()
 
 const comida = preload("res://Components/Food/comida.tscn")
 const Player = preload("res://Player/cobrinha.tscn")
@@ -15,10 +21,17 @@ var enet_peer = ENetMultiplayerPeer.new()
 
 var currentPlayer
 
+func _ready():
+	timerBatalha.start()
+
+func _on_timer_batalha_timeout():
+	if multiplayer.is_server():
+		montaCenario()
+
 func _on_timer_timeout():
 	if multiplayer.is_server():
 		generate_food()
-#meu commit
+
 @rpc("call_local")
 func spawn_food(foodName, positionX, positionY, foodHeight):
 	var nova_comida = comida.instantiate()
@@ -110,3 +123,26 @@ func upnp_setup():
 	"UPNP Port Mapping Failed! Error %s" % map_result)
 	
 	print("Success! Join Address: %s" % upnp.query_external_address()[randi() % 10])
+	
+func montaCenario():
+	var calculoGerado = Utils.generate_calc()
+	
+	var numero1 = calculoGerado[0]
+	var numero2 = calculoGerado[1]
+	var simbolo = calculoGerado[2]
+	var resultado = calculoGerado[3]
+	
+	#primeiro gera o do servidor
+	_add_a_scene_manually(numero1, numero2, simbolo, resultado)
+	
+	for peer_id in multiplayer.get_peers():
+			_add_a_scene_manually.rpc_id(peer_id, numero1, numero2, simbolo, resultado)
+
+@rpc("any_peer")
+func _add_a_scene_manually(numero1, numero2, simbolo, resultado):
+	simultaneous_scene.numero1 = numero1
+	simultaneous_scene.numero2 = numero2
+	simultaneous_scene.simbolo = simbolo
+	simultaneous_scene.resultado = resultado
+	get_tree().paused = true
+	get_tree().get_root().add_child(simultaneous_scene)

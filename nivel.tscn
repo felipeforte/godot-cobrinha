@@ -72,8 +72,12 @@ text = "Sair"
 _spawnable_scenes = PackedStringArray("res://Player/cobrinha.tscn", "res://Components/Food/comida.tscn", "res://Player/cobra_cabeca.tscn")
 spawn_path = NodePath("..")
 
+[node name="TimerBatalha" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="text_changed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/HBoxContainer/AddressEntry" to="." method="_on_address_entry_text_changed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/HBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="TimerBatalha" to="." method="_on_timer_batalha_timeout"]
