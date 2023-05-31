@@ -1,3 +1,4 @@
+Button
 Timer
 Node
 MultiplayerSynchronizer
@@ -5,7 +6,6 @@ HBoxContainer
 Camera2D
 MultiplayerSpawner
 LineEdit
-Button
 Label
 VBoxContainer
 MarginContainer

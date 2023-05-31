@@ -1,6 +1,4 @@
-res://nivel.gd
 res://nivel.tscn
 res://Player/cobrinha.tscn
 res://Batalha.tscn
-res://Batalha.gd
-res://Utils.gd
+res://nivel.gd

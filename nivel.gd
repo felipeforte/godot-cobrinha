@@ -146,3 +146,5 @@ func _add_a_scene_manually(numero1, numero2, simbolo, resultado):
 	simultaneous_scene.resultado = resultado
 	get_tree().paused = true
 	get_tree().get_root().add_child(simultaneous_scene)
+	
+	

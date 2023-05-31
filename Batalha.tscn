@@ -35,27 +35,63 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="number1_label" type="Label" parent="."]
-offset_left = 250.0
-offset_top = 195.0
-offset_right = 290.0
-offset_bottom = 218.0
+offset_left = 348.0
+offset_top = 187.0
+offset_right = 401.0
+offset_bottom = 213.0
+scale = Vector2(1.5, 1.5)
 text = "valor 1"
 
 [node name="number2_label" type="Label" parent="."]
-offset_left = 551.0
-offset_top = 195.0
-offset_right = 591.0
-offset_bottom = 218.0
+offset_left = 622.0
+offset_top = 187.0
+offset_right = 702.0
+offset_bottom = 213.0
+scale = Vector2(1.5, 1.5)
 text = "valor 2"
 
 [node name="symbol_label" type="Label" parent="."]
-offset_left = 395.0
-offset_top = 196.0
-offset_right = 435.0
-offset_bottom = 219.0
+offset_left = 478.0
+offset_top = 187.0
+offset_right = 541.0
+offset_bottom = 213.0
+scale = Vector2(1.5, 1.5)
+text = "Simbolo"
 
 [node name="result_label" type="Label" parent="."]
 offset_left = 306.0
 offset_top = 297.0
 offset_right = 346.0
 offset_bottom = 320.0
+
+[node name="ButtonRed" type="Button" parent="."]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+offset_left = 642.0
+offset_top = 276.0
+offset_right = 680.0
+offset_bottom = 313.0
+
+[node name="ButtonGreen" type="Button" parent="."]
+modulate = Color(0, 1, 0, 1)
+self_modulate = Color(0, 0.498039, 0.247059, 1)
+offset_left = 363.0
+offset_top = 277.0
+offset_right = 400.0
+offset_bottom = 314.0
+
+[node name="ButtonYellow" type="Button" parent="."]
+modulate = Color(1, 1, 0, 1)
+self_modulate = Color(1, 1, 0, 1)
+offset_left = 643.0
+offset_top = 404.0
+offset_right = 676.0
+offset_bottom = 437.0
+
+[node name="ButtonBlue" type="Button" parent="."]
+modulate = Color(0, 0, 1, 1)
+self_modulate = Color(0, 0, 1, 1)
+offset_left = 362.0
+offset_top = 390.0
+offset_right = 400.0
+offset_bottom = 429.0
