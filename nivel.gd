@@ -18,7 +18,7 @@ var currentPlayer
 func _on_timer_timeout():
 	if multiplayer.is_server():
 		generate_food()
-
+#meu commit
 @rpc("call_local")
 func spawn_food(foodName, positionX, positionY, foodHeight):
 	var nova_comida = comida.instantiate()
