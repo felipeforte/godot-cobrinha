@@ -80,7 +80,6 @@ func _on_quit_button_pressed():
 func add_player(peer_id):
 	currentPlayer = Player.instantiate()
 	currentPlayer.name = str(peer_id)
-	currentPlayer.identifier = str(peer_id)
 	add_child(currentPlayer)
 
 func remove_player(peer_id):

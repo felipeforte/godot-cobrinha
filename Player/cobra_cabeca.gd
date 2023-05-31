@@ -8,20 +8,11 @@ const accel = 2000
 
 var input = Vector2.ZERO
 
-func _enter_tree():
-	var id = PlayerData.identifier
-	set_multiplayer_authority(str(id).to_int())
-	
-	print("Enter: ", id)
-	
-func _ready():
-	if not is_multiplayer_authority():	return
-
 func _physics_process(delta):
 	if not is_multiplayer_authority():	return
 	
 	input = get_input()
-	
+
 	if input == Vector2.ZERO:
 		if velocity.length() > (friction * delta):
 			velocity -= velocity.normalized() * (friction * delta)

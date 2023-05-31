@@ -69,7 +69,7 @@ layout_mode = 2
 text = "Sair"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Player/cobrinha.tscn", "res://Components/Food/comida.tscn")
+_spawnable_scenes = PackedStringArray("res://Player/cobrinha.tscn", "res://Components/Food/comida.tscn", "res://Player/cobra_cabeca.tscn")
 spawn_path = NodePath("..")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,42 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc6diwmjfqe7i"]
+[gd_scene load_steps=4 format=3 uid="uid://cc6diwmjfqe7i"]
 
 [ext_resource type="Script" path="res://Player/cobrinha.gd" id="1_5k030"]
-[ext_resource type="Texture2D" uid="uid://dgeh481a32cad" path="res://Assets/Images/cobra_cabeça.png" id="2_gxadj"]
 [ext_resource type="PackedScene" uid="uid://ogty6r132bnn" path="res://Player/cobra_cabeca.tscn" id="2_tkeg0"]
-[ext_resource type="PackedScene" uid="uid://jpcbvn2pb8hw" path="res://Player/cobra_corpo.tscn" id="4_2s4o3"]
-[ext_resource type="Texture2D" uid="uid://d3ntf2cimjhic" path="res://Assets/Images/cobra_corpo.png" id="5_blrs1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ws1fs"]
-radius = 38.0526
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hmn30"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_n3byf"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/sync = true
+properties/1/path = NodePath("cobra_cabeca:position")
+properties/1/spawn = true
+properties/1/sync = true
 
 [node name="cobrinha" type="CharacterBody2D"]
 script = ExtResource("1_5k030")
 
-[node name="cabeca" parent="." instance=ExtResource("2_tkeg0")]
-script = null
-
-[node name="Sprite2D2" type="Sprite2D" parent="cabeca"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_gxadj")
-
-[node name="Area2D2" type="Area2D" parent="cabeca"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cabeca/Area2D2"]
-shape = SubResource("CircleShape2D_ws1fs")
-
-[node name="corpo" parent="." instance=ExtResource("4_2s4o3")]
-script = null
-
-[node name="Sprite2D2" type="Sprite2D" parent="corpo"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_blrs1")
-
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_hmn30")
+replication_config = SubResource("SceneReplicationConfig_n3byf")
 
-[connection signal="body_entered" from="cabeca/Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[node name="cobra_cabeca" parent="." instance=ExtResource("2_tkeg0")]
+
+[node name="Node" type="Node" parent="."]
