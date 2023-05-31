@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://w1gvsxc0h2tq"]
+
+[ext_resource type="Script" path="res://Batalha.gd" id="1_2w1hm"]
+
+[node name="Batalha" type="Node2D"]
+script = ExtResource("1_2w1hm")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 102.0
+offset_right = 663.0
+offset_bottom = 128.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "Quem resolver o problema primeiro ganhará 10 pontos"
+
+[node name="Operacao" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 183.0
+offset_right = 664.0
+offset_bottom = 209.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="number1_label" type="Label" parent="."]
+offset_left = 250.0
+offset_top = 195.0
+offset_right = 290.0
+offset_bottom = 218.0
+text = "valor 1"
+
+[node name="number2_label" type="Label" parent="."]
+offset_left = 551.0
+offset_top = 195.0
+offset_right = 591.0
+offset_bottom = 218.0
+text = "valor 2"
+
+[node name="symbol_label" type="Label" parent="."]
+offset_left = 395.0
+offset_top = 196.0
+offset_right = 435.0
+offset_bottom = 219.0
+
+[node name="result_label" type="Label" parent="."]
+offset_left = 306.0
+offset_top = 297.0
+offset_right = 346.0
+offset_bottom = 320.0
