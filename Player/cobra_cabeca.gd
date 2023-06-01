@@ -40,6 +40,7 @@ func _on_area_2d_body_entered(body):
 	
 	if (body.is_in_group("comida")):
 		parent.add_body(body.peso)
+		PlayerData.delete_food.rpc(body.name)
 		body.queue_free()
 	else:
 		print(body.name)
