@@ -142,7 +142,12 @@ func _add_a_scene_manually(numero1, numero2, simbolo, resultado):
 	get_tree().paused = true
 	get_tree().get_root().add_child(simultaneous_scene)
 	for n in 4:
-		simultaneous_scene.buttons[n].get_child(0).text = str(randi_range(0,25))
-	simultaneous_scene.buttons[randi() % 4].get_child(0).text = str(resultado)
+		var random = randi_range(0,25)
+		while (random == resultado):
+			random = randi_range(0,25)
+		simultaneous_scene.buttons[n].get_child(0).text = str(random)
+	var btnCorrect = randi() % 4
+	simultaneous_scene.buttons[btnCorrect].get_child(0).text = str(resultado)
+	simultaneous_scene.btnCorrect = btnCorrect
 	
 	
