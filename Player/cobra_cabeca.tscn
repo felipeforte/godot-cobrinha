@@ -26,6 +26,8 @@ offset_left = -22.0
 offset_top = -60.0
 offset_right = 21.0
 offset_bottom = -34.0
-text = "HOST"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

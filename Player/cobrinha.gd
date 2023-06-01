@@ -18,23 +18,8 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())	
 	print("Enter: ", name)
 
-func _physics_process(delta): pass
-#	follow_parent()
-#
-#	INPUT = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
-#
-#	if INPUT == Vector2.ZERO:
-#		if velocity.length() > (FRICTION * delta):
-#			velocity -= velocity.normalized() * (FRICTION * delta)
-#		else:
-#			velocity = Vector2.ZERO
-#	else:
-#		velocity += (INPUT * ACCELERATION * delta)
-#		velocity = velocity.limit_length(MAX_VELOCITY)
-#
-#	if not is_multiplayer_authority():	return
-#
-#	move_and_slide()
+func _physics_process(delta):
+	if not is_multiplayer_authority():	return
 
 func add_body(pesoComida):
 	if not is_multiplayer_authority():	return

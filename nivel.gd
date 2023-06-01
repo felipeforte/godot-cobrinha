@@ -14,7 +14,7 @@ const height = 600
 var simultaneous_scene = preload("res://Batalha.tscn").instantiate()
 
 const comida = preload("res://Components/Food/comida.tscn")
-const Player = preload("res://Player/cobrinha.tscn")
+const Player: = preload("res://Player/cobrinha.tscn")
 const PORT = 9999
 var enet_peer = ENetMultiplayerPeer.new()
 
@@ -42,7 +42,7 @@ func spawn_food(foodName, positionX, positionY, foodHeight):
 		nova_comida.peso = foodHeight
 		nova_comida.setLabelText(foodHeight)
 		add_child(nova_comida)
-		print("Spawn food to: %s" % currentPlayer.name)
+		print("Spawn food to: %s" % multiplayer.get_unique_id())
 
 func generate_food():
 	if multiplayer.is_server() and multiplayer.get_peers().size() > 0:
@@ -87,9 +87,9 @@ func _on_quit_button_pressed():
 	get_tree().quit()
 
 func add_player(peer_id):
-	currentPlayer = Player.instantiate()
-	currentPlayer.name = str(peer_id)
-	add_child(currentPlayer)
+	var player = Player.instantiate()
+	player.name = str(peer_id)
+	add_child(player)
 
 func remove_player(peer_id):
 	var player = get_node_or_null(str(peer_id))
@@ -132,7 +132,7 @@ func montaCenario():
 	_add_a_scene_manually(numero1, numero2, simbolo, resultado)
 	
 	for peer_id in multiplayer.get_peers():
-			_add_a_scene_manually.rpc_id(peer_id, numero1, numero2, simbolo, resultado)
+		_add_a_scene_manually.rpc_id(peer_id, numero1, numero2, simbolo, resultado)
 
 @rpc("any_peer")
 func _add_a_scene_manually(numero1, numero2, simbolo, resultado):

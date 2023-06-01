@@ -8,6 +8,11 @@ const accel = 2000
 
 var input = Vector2.ZERO
 
+func _ready():
+	if not is_multiplayer_authority(): return
+	
+	$Area2D/PlayerName.text = "VOCÊ"
+
 func _physics_process(delta):
 	if not is_multiplayer_authority():	return
 	
