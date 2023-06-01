@@ -17,9 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+JoystickSerial="*res://JoystickSerial.gd"
 PlayerData="*res://Player/PlayerData.gd"
-Utils="*res://Utils.gd"
 Events="*res://Events.gd"
+Utils="*res://Utils.gd"
 
 [input]
 

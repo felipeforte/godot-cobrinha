@@ -16,6 +16,9 @@ func _ready():
 func _physics_process(delta):
 	if not is_multiplayer_authority():	return
 	
+	print(multiplayer.get_unique_id())
+	print(parent.bodies.size())
+	
 	input = get_input()
 
 	if input == Vector2.ZERO:
@@ -41,6 +44,7 @@ func _on_area_2d_body_entered(body):
 	if (body.is_in_group("comida")):
 		parent.add_body(body.peso)
 		PlayerData.delete_food.rpc(body.name)
+		#PlayerData.delete_food.rpc_id(multiplayer.get_unique_id(),body.name)
 		body.queue_free()
 	else:
 		print(body.name)

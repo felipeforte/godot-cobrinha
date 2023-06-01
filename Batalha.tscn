@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://w1gvsxc0h2tq"]
+[gd_scene load_steps=8 format=3 uid="uid://w1gvsxc0h2tq"]
 
 [ext_resource type="Script" path="res://Batalha.gd" id="1_2w1hm"]
-[ext_resource type="Texture2D" uid="uid://csvuo8olnyh61" path="res://Assets/Images/bt_amarelo.png" id="2_d3ai5"]
-[ext_resource type="Texture2D" uid="uid://coda5hx1pagft" path="res://Assets/Images/bt_verde.png" id="3_qqy4n"]
-[ext_resource type="Texture2D" uid="uid://b6xx6fklmogw" path="res://Assets/Images/bt_vermelho.png" id="4_2j1x4"]
-[ext_resource type="Texture2D" uid="uid://5fa8mynpdk4v" path="res://Assets/Images/bt_azul.png" id="5_31fjo"]
+[ext_resource type="Texture2D" uid="uid://e3sfrenc16wl" path="res://Assets/Images/bt_amarelo.png" id="2_d3ai5"]
+[ext_resource type="Texture2D" uid="uid://dn042v0d06lgi" path="res://Assets/Images/bt_verde.png" id="3_qqy4n"]
+[ext_resource type="Texture2D" uid="uid://c6jqqeag5p77q" path="res://Assets/Images/bt_vermelho.png" id="4_2j1x4"]
+[ext_resource type="Texture2D" uid="uid://b0weyo04hdvnm" path="res://Assets/Images/bt_azul.png" id="5_31fjo"]
+[ext_resource type="Script" path="res://ButtonHandle.gd" id="6_unc86"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ax6mf"]
 font_size = 32
@@ -156,3 +157,8 @@ text = "00"
 label_settings = SubResource("LabelSettings_ax6mf")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("6_unc86")

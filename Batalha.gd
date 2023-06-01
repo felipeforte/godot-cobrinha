@@ -15,7 +15,7 @@ var buttons: Array = []
 func _ready():
 	number1_label.text = str(numero1)
 	number2_label.text = str(numero2)
-	symbol_label.text = simbolo
+	symbol_label.text = str(simbolo)
 	result_label.text = str(resultado)
 	buttons.append($Buttons/ButtonBlue)
 	buttons.append($Buttons/ButtonGreen)

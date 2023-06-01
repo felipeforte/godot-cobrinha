@@ -19,13 +19,24 @@ func _enter_tree():
 	print("Enter: ", name)
 
 func _physics_process(delta):
-	if not is_multiplayer_authority():	return
+	if not is_multiplayer_authority(): return
 
 func add_body(pesoComida):
 	if not is_multiplayer_authority():	return
 	
 	var body_temp = preload("res://Player/cobra_corpo.tscn")
 	var body_new = body_temp.instantiate()
+	
+	if pesoComida < 0 and bodies.size() == 0:
+		return
+	
+	if pesoComida < 0:
+		var index = bodies.size() - 1
+		var removeNode = bodies[index]
+		if has_node("Node/%s" % removeNode):
+			removeNode.queue_free()
+			bodies.remove_at(index)
+		return
 	
 	if bodies.size() == 0:
 		print("Adiciona CABECA***************")

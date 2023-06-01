@@ -1,4 +1,6 @@
-res://Player/cobrinha.tscn
-res://JoystickSerial.gd
 res://nivel.tscn
+res://Player/cobrinha.tscn
 res://Player/cobra_cabeca.tscn
+res://Batalha.tscn
+res://Player/cobra_corpo.tscn
+res://JoystickSerial.gd
