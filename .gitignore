@@ -1,0 +1,20 @@
+# Godot project files
+.project
+.import
+.export
+scn_export/
+*.import
+
+# Build and binary files
+*.exe
+*.dll
+*.so
+*.dylib
+*.pdb
+*.rpt
+*.bak
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+

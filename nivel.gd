@@ -4,7 +4,6 @@ const width = 1000
 const height = 600
 
 @onready var timer : Timer = $Timer
-
 @onready var timerBatalha : Timer = $TimerBatalha
 
 
@@ -22,7 +21,8 @@ var enet_peer = ENetMultiplayerPeer.new()
 var currentPlayer
 
 func _ready():
-	timerBatalha.start()
+	#timerBatalha.start()
+	pass
 
 func _on_timer_batalha_timeout():
 	if multiplayer.is_server():
@@ -34,19 +34,19 @@ func _on_timer_timeout():
 
 @rpc("call_local")
 func spawn_food(foodName, positionX, positionY, foodHeight):
-	var nova_comida = comida.instantiate()
-	#nova_comida.name = foodName
-	nova_comida.position.x = positionX
-	nova_comida.position.y = positionY
-	nova_comida.peso = foodHeight
-	nova_comida.setLabelText(foodHeight)
-	add_child(nova_comida)
-	print("Spawn food to: %s" % currentPlayer.name)
+	if not has_node(foodName):
+		var nova_comida = comida.instantiate()
+		nova_comida.name = foodName
+		nova_comida.position.x = positionX
+		nova_comida.position.y = positionY
+		nova_comida.peso = foodHeight
+		nova_comida.setLabelText(foodHeight)
+		add_child(nova_comida)
+		print("Spawn food to: %s" % currentPlayer.name)
 
 func generate_food():
 	if multiplayer.is_server() and multiplayer.get_peers().size() > 0:
-				
-		var nova_comida = comida.instantiate()
+		
 		var foodName = "comida_%s" % Utils.generate_random_string(10)
 		var positionX = randi() % width
 		var positionY = randi() % height
@@ -55,12 +55,8 @@ func generate_food():
 		if foodHeight == 0:
 			foodHeight = 1
 		
-		nova_comida.name = foodName
-		nova_comida.position.x = positionX
-		nova_comida.position.y = positionY
-		nova_comida.setLabelText(foodHeight)
+		spawn_food.rpc(foodName, positionX, positionY, foodHeight)
 		
-		add_child(nova_comida)
 		for peer_id in multiplayer.get_peers():
 			spawn_food.rpc_id(peer_id, foodName, positionX, positionY, foodHeight)
 

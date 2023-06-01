@@ -1,3 +1,4 @@
+Label
 Button
 Timer
 Node
@@ -6,7 +7,6 @@ HBoxContainer
 Camera2D
 MultiplayerSpawner
 LineEdit
-Label
 VBoxContainer
 MarginContainer
 PanelContainer

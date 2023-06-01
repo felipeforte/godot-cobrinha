@@ -2,3 +2,9 @@ res://nivel.tscn
 res://Player/cobrinha.tscn
 res://Batalha.tscn
 res://nivel.gd
+res://Components/Food/comida.tscn
+res://Player/cobrinha.gd
+res://Player/PlayerData.gd
+res://Player/cobra_cabeca.tscn
+res://Player/cobra_cabeca.gd
+res://Utils.gd

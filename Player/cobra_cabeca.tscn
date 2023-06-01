@@ -7,6 +7,7 @@
 radius = 38.0526
 
 [node name="cobra_cabeca" type="CharacterBody2D"]
+z_index = 4095
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_sywb0")
 
@@ -18,5 +19,13 @@ texture = ExtResource("2_pxgf5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_507tm")
+
+[node name="PlayerName" type="Label" parent="Area2D"]
+z_index = 4096
+offset_left = -22.0
+offset_top = -60.0
+offset_right = 21.0
+offset_bottom = -34.0
+text = "HOST"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
