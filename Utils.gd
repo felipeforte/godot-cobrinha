@@ -37,7 +37,7 @@ func generate_calc():
 	var number2 = randi() % 26  # Gera um número inteiro aleatório entre 0 e 99
 	
 	
-	var symbols = ["+", "-", "*", "/"]
+	var symbols = ["+", "-", "×", "÷"]
 	var symbol = symbols[randi() % symbols.size()] # Escolhe um símbolo de operação aleatório
 	var result = 0
 
@@ -49,10 +49,10 @@ func generate_calc():
 		"-":
 			result = number1 - number2
 			print("Resultado:", result)
-		"*":
+		"×":
 			result = number1 * number2
 			print("Resultado:", result)
-		"/":
+		"÷":
 			#do:
 			#	number2 = randi() % 26
 			#while (number2 % 2 != 0)
