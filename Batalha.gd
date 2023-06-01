@@ -30,10 +30,22 @@ func pick_random_symbol() -> String:
 
 func _input(event):
 	if Input.is_action_pressed("vermelho"):
-		print("vermelho")
+		if btnCorrect == 0:
+			print("correto!")
+		else:
+			print("errado!")
 	if Input.is_action_pressed("verde"):
-		print("verde")
+		if btnCorrect == 1:
+			print("correto!")
+		else:
+			print("errado!")
 	if Input.is_action_pressed("azul"):
-		print("azul")
+		if btnCorrect == 2:
+			print("correto!")
+		else:
+			print("errado!")
 	if Input.is_action_pressed("amarelo"):
-		print("amarelo")
+		if btnCorrect == 3:
+			print("correto!")
+		else:
+			print("errado!")
