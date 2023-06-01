@@ -18,19 +18,19 @@ const Player: = preload("res://Player/cobrinha.tscn")
 const PORT = 9999
 var enet_peer = ENetMultiplayerPeer.new()
 
+var partida : bool
+
 var currentPlayer
 
 func _ready():
-	#Timer tá no lugar errado
-	timerBatalha.start()
 	pass
 
 func _on_timer_batalha_timeout():
-	if multiplayer.is_server():
+	if multiplayer.is_server() and multiplayer.get_peers().size() > 0:
 		montaCenario()
 
 func _on_timer_timeout():
-	if multiplayer.is_server():
+	if multiplayer.is_server() and multiplayer.get_peers().size() > 0:
 		generate_food()
 
 @rpc("call_local")
@@ -43,23 +43,21 @@ func spawn_food(foodName, positionX, positionY, foodHeight):
 		nova_comida.peso = foodHeight
 		nova_comida.setLabelText(foodHeight)
 		add_child(nova_comida)
-		print("Spawn food to: %s" % multiplayer.get_unique_id())
+#		print("Spawn food to: %s" % multiplayer.get_unique_id())
 
 func generate_food():
-	if multiplayer.is_server() and multiplayer.get_peers().size() > 0:
-		
-		var foodName = "comida_%s" % Utils.generate_random_string(10)
-		var positionX = randi() % width
-		var positionY = randi() % height
-		var foodHeight = randi_range(-1, 1)
-		
-		if foodHeight == 0:
-			foodHeight = 1
-		
-		spawn_food.rpc(foodName, positionX, positionY, foodHeight)
-		
-		for peer_id in multiplayer.get_peers():
-			spawn_food.rpc_id(peer_id, foodName, positionX, positionY, foodHeight)
+	var foodName = "comida_%s" % Utils.generate_random_string(10)
+	var positionX = randi() % width
+	var positionY = randi() % height
+	var foodHeight = randi_range(-1, 1)
+	
+	if foodHeight == 0:
+		foodHeight = 1
+	
+	spawn_food.rpc(foodName, positionX, positionY, foodHeight)
+	
+	for peer_id in multiplayer.get_peers():
+		spawn_food.rpc_id(peer_id, foodName, positionX, positionY, foodHeight)
 
 func _on_host_button_pressed():
 	main_menu.hide()
@@ -119,7 +117,7 @@ func upnp_setup():
 	assert(map_result == UPNP.UPNP_RESULT_SUCCESS, \
 	"UPNP Port Mapping Failed! Error %s" % map_result)
 	
-	print("Success! Join Address: %s" % upnp.query_external_address()[randi() % 10])
+#	print("Success! Join Address: %s" % upnp.query_external_address()[randi() % 10])
 	
 func montaCenario():
 	var calculoGerado = Utils.generate_calc()
