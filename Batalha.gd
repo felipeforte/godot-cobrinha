@@ -11,6 +11,7 @@ var simbolo
 var resultado
 
 var buttons: Array = []
+var btnCorrect
 
 func _ready():
 	number1_label.text = str(numero1)
