@@ -33,31 +33,41 @@ func generate_random_number(min,max):
 	return randi_range(min,max)
 
 func generate_calc():
-	var number1 = randi() % 26  # Gera um número inteiro aleatório entre 0 e 99
-	var number2 = randi() % 26  # Gera um número inteiro aleatório entre 0 e 99
 	
 	
 	var symbols = ["+", "-", "×", "÷"]
 	var symbol = symbols[randi() % symbols.size()] # Escolhe um símbolo de operação aleatório
-	var result = 0
+	var number1
+	var number2
+	if symbol == "×":
+		number1 = randi_range(2,12)
+		number2 = randi_range(2,12)
+	elif symbol == "÷":
+		var divisores = [2,3,5]
+		number2 = divisores[randi_range(0,2)]
+		number1 = randi_range(1,12)*number2
+	else:
+		number1 = randi_range(1,25)
+		number2 = randi_range(1,25)
+	var result
 
 	
 	match symbol:
 		"+":
 			result = number1 + number2
-			print("Resultado:", result)
+#			print("Resultado:", result)
 		"-":
 			result = number1 - number2
-			print("Resultado:", result)
+#			print("Resultado:", result)
 		"×":
 			result = number1 * number2
-			print("Resultado:", result)
+#			print("Resultado:", result)
 		"÷":
 			#do:
 			#	number2 = randi() % 26
 			#while (number2 % 2 != 0)
 			
 			result = number1 / number2
-			print("Resultado:", result)
+#			print("Resultado:", result)
 	
 	return [number1, number2, symbol, result]
