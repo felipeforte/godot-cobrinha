@@ -11,6 +11,7 @@
 font_size = 32
 
 [node name="Batalha" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_2w1hm")
 
 [node name="Panel" type="Panel" parent="."]
@@ -73,6 +74,72 @@ offset_bottom = 320.0
 [node name="Buttons" type="Node2D" parent="."]
 position = Vector2(576, 407)
 scale = Vector2(1.25, 1.25)
+
+[node name="ButtonRed" type="Sprite2D" parent="Buttons"]
+position = Vector2(50, 0)
+scale = Vector2(1, 1)
+texture = ExtResource("4_2j1x4")
+
+[node name="Label" type="Label" parent="Buttons/ButtonRed"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -44.5
+offset_right = -19.5
+offset_bottom = -19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "00"
+label_settings = SubResource("LabelSettings_ax6mf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonGreen" type="Sprite2D" parent="Buttons"]
+position = Vector2(-50, 0)
+scale = Vector2(1, 1)
+texture = ExtResource("3_qqy4n")
+
+[node name="Label" type="Label" parent="Buttons/ButtonGreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -44.5
+offset_right = -19.5
+offset_bottom = -19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "00"
+label_settings = SubResource("LabelSettings_ax6mf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonBlue" type="Sprite2D" parent="Buttons"]
+position = Vector2(0, -50)
+scale = Vector2(1, 1)
+texture = ExtResource("5_31fjo")
+
+[node name="Label" type="Label" parent="Buttons/ButtonBlue"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -44.5
+offset_right = -19.5
+offset_bottom = -19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "00"
+label_settings = SubResource("LabelSettings_ax6mf")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonYellow" type="Sprite2D" parent="Buttons"]
 position = Vector2(0, 50)
