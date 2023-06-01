@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://w1gvsxc0h2tq"]
+[gd_scene load_steps=7 format=3 uid="uid://w1gvsxc0h2tq"]
 
 [ext_resource type="Script" path="res://Batalha.gd" id="1_2w1hm"]
+[ext_resource type="Texture2D" uid="uid://csvuo8olnyh61" path="res://Assets/Images/bt_amarelo.png" id="2_d3ai5"]
+[ext_resource type="Texture2D" uid="uid://coda5hx1pagft" path="res://Assets/Images/bt_verde.png" id="3_qqy4n"]
+[ext_resource type="Texture2D" uid="uid://b6xx6fklmogw" path="res://Assets/Images/bt_vermelho.png" id="4_2j1x4"]
+[ext_resource type="Texture2D" uid="uid://5fa8mynpdk4v" path="res://Assets/Images/bt_azul.png" id="5_31fjo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ax6mf"]
+font_size = 32
 
 [node name="Batalha" type="Node2D"]
 script = ExtResource("1_2w1hm")
@@ -11,52 +18,50 @@ offset_bottom = 648.0
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 232.0
-offset_top = 102.0
-offset_right = 663.0
-offset_bottom = 128.0
+offset_left = 217.0
+offset_top = 112.0
+offset_right = 699.0
+offset_bottom = 160.0
 scale = Vector2(1.5, 1.5)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-text = "Quem resolver o problema primeiro ganhará 10 pontos"
-
-[node name="Operacao" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 233.0
-offset_top = 183.0
-offset_right = 664.0
-offset_bottom = 209.0
-scale = Vector2(1.5, 1.5)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Resolva o mais rápido possível!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="number1_label" type="Label" parent="."]
-offset_left = 348.0
-offset_top = 187.0
-offset_right = 401.0
-offset_bottom = 213.0
+offset_left = 383.0
+offset_top = 171.0
+offset_right = 457.0
+offset_bottom = 262.0
 scale = Vector2(1.5, 1.5)
-text = "valor 1"
+theme_override_font_sizes/font_size = 64
+text = "00"
+horizontal_alignment = 1
 
 [node name="number2_label" type="Label" parent="."]
-offset_left = 622.0
-offset_top = 187.0
-offset_right = 702.0
-offset_bottom = 213.0
+offset_left = 657.0
+offset_top = 171.0
+offset_right = 737.0
+offset_bottom = 262.0
 scale = Vector2(1.5, 1.5)
-text = "valor 2"
+theme_override_font_sizes/font_size = 64
+text = "00"
+horizontal_alignment = 1
 
 [node name="symbol_label" type="Label" parent="."]
-offset_left = 478.0
-offset_top = 187.0
-offset_right = 541.0
-offset_bottom = 213.0
+offset_left = 529.0
+offset_top = 171.0
+offset_right = 592.0
+offset_bottom = 262.0
 scale = Vector2(1.5, 1.5)
-text = "Simbolo"
+theme_override_font_sizes/font_size = 64
+text = "+"
+horizontal_alignment = 1
 
 [node name="result_label" type="Label" parent="."]
 offset_left = 306.0
@@ -64,34 +69,90 @@ offset_top = 297.0
 offset_right = 346.0
 offset_bottom = 320.0
 
-[node name="ButtonRed" type="Button" parent="."]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(1, 0, 0, 1)
-offset_left = 642.0
-offset_top = 276.0
-offset_right = 680.0
-offset_bottom = 313.0
+[node name="Buttons" type="Node2D" parent="."]
+position = Vector2(576, 407)
+scale = Vector2(1.25, 1.25)
 
-[node name="ButtonGreen" type="Button" parent="."]
-modulate = Color(0, 1, 0, 1)
-self_modulate = Color(0, 0.498039, 0.247059, 1)
-offset_left = 363.0
-offset_top = 277.0
-offset_right = 400.0
-offset_bottom = 314.0
+[node name="ButtonYellow" type="Sprite2D" parent="Buttons"]
+position = Vector2(0, 50)
+texture = ExtResource("2_d3ai5")
 
-[node name="ButtonYellow" type="Button" parent="."]
-modulate = Color(1, 1, 0, 1)
-self_modulate = Color(1, 1, 0, 1)
-offset_left = 643.0
-offset_top = 404.0
-offset_right = 676.0
-offset_bottom = 437.0
+[node name="Label" type="Label" parent="Buttons/ButtonYellow"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -44.5
+offset_right = -19.5
+offset_bottom = -19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "00"
+label_settings = SubResource("LabelSettings_ax6mf")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ButtonBlue" type="Button" parent="."]
-modulate = Color(0, 0, 1, 1)
-self_modulate = Color(0, 0, 1, 1)
-offset_left = 362.0
-offset_top = 390.0
-offset_right = 400.0
-offset_bottom = 429.0
+[node name="ButtonGreen" type="Sprite2D" parent="Buttons"]
+position = Vector2(-50, 0)
+texture = ExtResource("3_qqy4n")
+
+[node name="Label" type="Label" parent="Buttons/ButtonGreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -44.5
+offset_right = -19.5
+offset_bottom = -19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "00"
+label_settings = SubResource("LabelSettings_ax6mf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonRed" type="Sprite2D" parent="Buttons"]
+position = Vector2(50, 0)
+texture = ExtResource("4_2j1x4")
+
+[node name="Label" type="Label" parent="Buttons/ButtonRed"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -44.5
+offset_right = -19.5
+offset_bottom = -19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "00"
+label_settings = SubResource("LabelSettings_ax6mf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonBlue" type="Sprite2D" parent="Buttons"]
+position = Vector2(0, -50)
+texture = ExtResource("5_31fjo")
+
+[node name="Label" type="Label" parent="Buttons/ButtonBlue"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -44.5
+offset_right = -19.5
+offset_bottom = -19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "00"
+label_settings = SubResource("LabelSettings_ax6mf")
+horizontal_alignment = 1
+vertical_alignment = 1

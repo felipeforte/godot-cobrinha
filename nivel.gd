@@ -127,7 +127,6 @@ func montaCenario():
 	var numero2 = calculoGerado[1]
 	var simbolo = calculoGerado[2]
 	var resultado = calculoGerado[3]
-	
 	#primeiro gera o do servidor
 	_add_a_scene_manually(numero1, numero2, simbolo, resultado)
 	
@@ -142,5 +141,8 @@ func _add_a_scene_manually(numero1, numero2, simbolo, resultado):
 	simultaneous_scene.resultado = resultado
 	get_tree().paused = true
 	get_tree().get_root().add_child(simultaneous_scene)
+	for n in 4:
+		simultaneous_scene.buttons[n].get_child(0).text = str(randi_range(0,25))
+	simultaneous_scene.buttons[randi() % 4].get_child(0).text = str(resultado)
 	
 	
