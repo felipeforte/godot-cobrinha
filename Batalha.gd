@@ -18,9 +18,9 @@ func _ready():
 	number2_label.text = str(numero2)
 	symbol_label.text = simbolo
 	result_label.text = str(resultado)
-	buttons.append($Buttons/ButtonBlue)
-	buttons.append($Buttons/ButtonGreen)
 	buttons.append($Buttons/ButtonRed)
+	buttons.append($Buttons/ButtonGreen)
+	buttons.append($Buttons/ButtonBlue)
 	buttons.append($Buttons/ButtonYellow)
 	set_process_input(true)
 
