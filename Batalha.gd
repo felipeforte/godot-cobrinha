@@ -22,7 +22,18 @@ func _ready():
 	buttons.append($Buttons/ButtonGreen)
 	buttons.append($Buttons/ButtonRed)
 	buttons.append($Buttons/ButtonYellow)
+	set_process_input(true)
 
 func pick_random_symbol() -> String:
 	var symbols = ["+", "-", "×", "÷"]
 	return symbols[randi() % symbols.size()]
+
+func _input(event):
+	if Input.is_action_pressed("vermelho"):
+		print("vermelho")
+	if Input.is_action_pressed("verde"):
+		print("verde")
+	if Input.is_action_pressed("azul"):
+		print("azul")
+	if Input.is_action_pressed("amarelo"):
+		print("amarelo")
