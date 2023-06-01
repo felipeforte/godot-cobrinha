@@ -21,7 +21,8 @@ var enet_peer = ENetMultiplayerPeer.new()
 var currentPlayer
 
 func _ready():
-	#timerBatalha.start()
+	#Timer tá no lugar errado
+	timerBatalha.start()
 	pass
 
 func _on_timer_batalha_timeout():
