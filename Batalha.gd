@@ -13,6 +13,9 @@ var resultado
 var buttons: Array = []
 var btnCorrect
 
+signal correto
+signal errado
+
 func _ready():
 	number1_label.text = str(numero1)
 	number2_label.text = str(numero2)
@@ -36,27 +39,10 @@ func _input(event):
 	pass
 
 func _checkBtn():
-	if Input.is_action_just_pressed("vermelho"):
-		if btnCorrect == 0:
-			print("correto!")
-		else:
-			print("errado!")
-	
-	if Input.is_action_just_pressed("verde"):
-		if btnCorrect == 1:
-			print("correto!")
-		else:
-			print("errado!")
-	
-	if Input.is_action_just_pressed("azul"):
-		if btnCorrect == 2:
-			print("correto!")
-		else:
-			print("errado!")
-	
-	if Input.is_action_just_pressed("amarelo"):
-		if btnCorrect == 3:
-			print("correto!")
-		else:
-			print("errado!")
-	
+	var array = ["vermelho","verde","azul","amarelo"]
+	for i in 4:
+		if Input.is_action_just_pressed(array[i]): 
+			if btnCorrect == i:
+				print("correto")
+			else:
+				print("errado")

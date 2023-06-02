@@ -74,6 +74,7 @@ spawn_path = NodePath("..")
 
 [node name="TimerBatalha" type="Timer" parent="."]
 wait_time = 10.0
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
