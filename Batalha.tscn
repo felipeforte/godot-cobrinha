@@ -66,6 +66,7 @@ text = "+"
 horizontal_alignment = 1
 
 [node name="result_label" type="Label" parent="."]
+visible = false
 offset_left = 306.0
 offset_top = 297.0
 offset_right = 346.0

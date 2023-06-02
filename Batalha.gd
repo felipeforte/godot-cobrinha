@@ -44,5 +44,7 @@ func _checkBtn():
 		if Input.is_action_just_pressed(array[i]): 
 			if btnCorrect == i:
 				print("correto")
+				get_tree().paused= false
+				queue_free()
 			else:
 				print("errado")

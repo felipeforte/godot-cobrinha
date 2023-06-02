@@ -11,7 +11,7 @@ const height = 600
 @onready var join_button = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/HBoxContainer/JoinButton
 @onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/HBoxContainer/AddressEntry
 
-var simultaneous_scene = preload("res://Batalha.tscn").instantiate()
+#var simultaneous_scene = preload("res://Batalha.tscn").instantiate()
 
 const comida = preload("res://Components/Food/comida.tscn")
 const Player: = preload("res://Player/cobrinha.tscn")
@@ -22,9 +22,22 @@ var partida : bool
 
 var currentPlayer
 
+var defaultHOST = "localhost"
+
 func _ready():
 	timerBatalha.start()
+	loadFileConfig()
 	pass
+
+func loadFileConfig():
+	var file_path = "res://host_config.txt"
+	
+	if FileAccess.file_exists(file_path):
+		var file = FileAccess.open(file_path, FileAccess.READ)
+		var file_contents = file.get_as_text().trim_prefix("").trim_suffix("")
+		defaultHOST = file_contents
+		address_entry.text = defaultHOST
+		print("defaultHost:", defaultHOST)
 
 func _on_timer_batalha_timeout():
 	if multiplayer.is_server() and multiplayer.get_peers().size() > 0:
@@ -135,6 +148,8 @@ func montaCenario():
 
 @rpc("any_peer")
 func _add_a_scene_manually(numero1, numero2, simbolo, resultado):
+	var simultaneous_scene = preload("res://Batalha.tscn").instantiate()
+	
 	simultaneous_scene.numero1 = numero1
 	simultaneous_scene.numero2 = numero2
 	simultaneous_scene.simbolo = simbolo

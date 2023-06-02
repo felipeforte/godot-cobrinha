@@ -6,7 +6,7 @@
 script = ExtResource("1_lvqr4")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.5
+wait_time = 1.8
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -73,7 +73,7 @@ _spawnable_scenes = PackedStringArray("res://Player/cobrinha.tscn", "res://Compo
 spawn_path = NodePath("..")
 
 [node name="TimerBatalha" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 40.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
