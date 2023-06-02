@@ -14,9 +14,9 @@ properties/1/sync = true
 [node name="cobrinha" type="CharacterBody2D"]
 script = ExtResource("1_5k030")
 
+[node name="cobra_cabeca" parent="." instance=ExtResource("2_tkeg0")]
+
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_n3byf")
-
-[node name="cobra_cabeca" parent="." instance=ExtResource("2_tkeg0")]
 
 [node name="Node" type="Node" parent="."]
