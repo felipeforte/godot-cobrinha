@@ -11,8 +11,6 @@ const height = 600
 @onready var join_button = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/HBoxContainer/JoinButton
 @onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/HBoxContainer/AddressEntry
 
-var simultaneous_scene = preload("res://Batalha.tscn").instantiate()
-
 const comida = preload("res://Components/Food/comida.tscn")
 const Player: = preload("res://Player/cobrinha.tscn")
 const PORT = 9999
@@ -134,6 +132,7 @@ func montaCenario():
 
 @rpc("any_peer")
 func _add_a_scene_manually(numero1, numero2, simbolo, resultado):
+	var simultaneous_scene = preload("res://Batalha.tscn").instantiate()
 	simultaneous_scene.numero1 = numero1
 	simultaneous_scene.numero2 = numero2
 	simultaneous_scene.simbolo = simbolo
