@@ -153,6 +153,7 @@ func _add_a_scene_manually(numero1, numero2, simbolo, resultado):
 			else:
 				random = randi() % resultado
 		opcoes.append(random)
+		simultaneous_scene.buttons[n].get_child(0).text = str(random)
 	var btnCorrect = randi() % 4
 	simultaneous_scene.buttons[btnCorrect].get_child(0).text = str(resultado)
 	simultaneous_scene.btnCorrect = btnCorrect
