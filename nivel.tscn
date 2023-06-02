@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bff13n4jknjim"]
+[gd_scene load_steps=3 format=3 uid="uid://bff13n4jknjim"]
 
 [ext_resource type="Script" path="res://nivel.gd" id="1_lvqr4"]
+[ext_resource type="Texture2D" uid="uid://d1v8eckopo8qj" path="res://AtlasBackground/lxwas5gcqfw51.png" id="2_ptypi"]
 
 [node name="nivel" type="Node2D"]
 script = ExtResource("1_lvqr4")
@@ -75,6 +76,11 @@ spawn_path = NodePath("..")
 [node name="TimerBatalha" type="Timer" parent="."]
 wait_time = 40.0
 autostart = true
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(581, 330)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ptypi")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer2/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]

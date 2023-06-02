@@ -48,3 +48,5 @@ func _checkBtn():
 				queue_free()
 			else:
 				print("errado")
+				
+
