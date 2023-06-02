@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://w1gvsxc0h2tq"]
 
 [ext_resource type="Script" path="res://Batalha.gd" id="1_2w1hm"]
-[ext_resource type="Texture2D" uid="uid://csvuo8olnyh61" path="res://Assets/Images/bt_amarelo.png" id="2_d3ai5"]
-[ext_resource type="Texture2D" uid="uid://coda5hx1pagft" path="res://Assets/Images/bt_verde.png" id="3_qqy4n"]
-[ext_resource type="Texture2D" uid="uid://b6xx6fklmogw" path="res://Assets/Images/bt_vermelho.png" id="4_2j1x4"]
-[ext_resource type="Texture2D" uid="uid://5fa8mynpdk4v" path="res://Assets/Images/bt_azul.png" id="5_31fjo"]
+[ext_resource type="Texture2D" uid="uid://bjan83jvdygm3" path="res://Assets/Images/bt_amarelo.png" id="2_d3ai5"]
+[ext_resource type="Texture2D" uid="uid://csspyt0jrdom8" path="res://Assets/Images/bt_verde.png" id="3_qqy4n"]
+[ext_resource type="Texture2D" uid="uid://ckw15iefwkof4" path="res://Assets/Images/bt_vermelho.png" id="4_2j1x4"]
+[ext_resource type="Texture2D" uid="uid://cj6q0p1cyspit" path="res://Assets/Images/bt_azul.png" id="5_31fjo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ax6mf"]
 font_size = 32
@@ -65,6 +65,7 @@ text = "+"
 horizontal_alignment = 1
 
 [node name="result_label" type="Label" parent="."]
+visible = false
 offset_left = 306.0
 offset_top = 297.0
 offset_right = 346.0
@@ -76,7 +77,6 @@ scale = Vector2(1.25, 1.25)
 
 [node name="ButtonRed" type="Sprite2D" parent="Buttons"]
 position = Vector2(50, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("4_2j1x4")
 
 [node name="Label" type="Label" parent="Buttons/ButtonRed"]
@@ -98,7 +98,6 @@ vertical_alignment = 1
 
 [node name="ButtonGreen" type="Sprite2D" parent="Buttons"]
 position = Vector2(-50, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("3_qqy4n")
 
 [node name="Label" type="Label" parent="Buttons/ButtonGreen"]
@@ -120,7 +119,6 @@ vertical_alignment = 1
 
 [node name="ButtonBlue" type="Sprite2D" parent="Buttons"]
 position = Vector2(0, -50)
-scale = Vector2(1, 1)
 texture = ExtResource("5_31fjo")
 
 [node name="Label" type="Label" parent="Buttons/ButtonBlue"]
