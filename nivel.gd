@@ -21,11 +21,11 @@ var enet_peer = ENetMultiplayerPeer.new()
 var currentPlayer
 
 func _ready():
-	#timerBatalha.start()
+	timerBatalha.start()
 	pass
 
 func _on_timer_batalha_timeout():
-	if multiplayer.is_server():
+	if multiplayer.is_server() and multiplayer.get_peers().size() > 0:
 		montaCenario()
 
 func _on_timer_timeout():
@@ -149,5 +149,3 @@ func _add_a_scene_manually(numero1, numero2, simbolo, resultado):
 	var btnCorrect = randi() % 4
 	simultaneous_scene.buttons[btnCorrect].get_child(0).text = str(resultado)
 	simultaneous_scene.btnCorrect = btnCorrect
-	
-	

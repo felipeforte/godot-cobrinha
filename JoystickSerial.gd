@@ -1,70 +1,85 @@
 extends Node
 
-const serial_res = NodePath("res://bin/gdserial.gdns")
-
-#var serial_port = serial_res.new()
-#var serial_port
-
-enum CONNECTION_TYPES {
-	SERIAL,
-	WIFI,
-	BLUETHOOT
-}
+var serial := SerialPort.new()
 
 var joystick_connected = false
-var joystick_connection_type = CONNECTION_TYPES.SERIAL
 
-var command = ""
+var serialCommand = ''
+var defaultPort = "COM1"
 
-var websocketClient
-var websocketConnected = false
-const websocketHostIP = ""
-const websocketPort = 80
+@onready var fileAccess: = FileAccess
+
+func _enter_tree():	
+	set_process_mode(Node.PROCESS_MODE_ALWAYS)
+	set_process_priority(-1)
 
 func _ready():
-#	if serial_res.new():
-#		serial_port = serial_res.new()
-		
-	#joystick_connected = serial_port.open_port('COM5', 115200)
+	if not is_multiplayer_authority(): return
 	
-	#websocketClient = StreamPeerTCP.new()
-	#websocketClient.set_no_delay(true) 
-	#websocketClient.connect_to_host(websocketHostIP, websocketPort)
-	#if(websocketClient.is_connected_to_host()):
-	#	joystick_connected = true
-	#	joystick_connection_type = CONNECTION_TYPES.WIFI
+	serial.got_error.connect(_on_error)
+	serial.baudrate = 115200
+	#serial.data_received.connect(_on_data_received)
+	serial.start_monitoring(serial.baudrate)
+	loadFileConfig()
+	serial.open(defaultPort)
+	
+	joystick_connected = serial.is_open()
 	
 	print('Joystick:connected -> ', joystick_connected)
-	print('Joystick:connected_by -> ', joystick_connection_type)
+
+func loadFileConfig():
+	var file_path = "res://joyport_config.txt"
 	
-	if joystick_connected:
-		send_command("CONNECT")
+	if not FileAccess.file_exists(file_path):
+		serial.port = defaultPort
+	else:
+		var file = FileAccess.open(file_path, FileAccess.READ)
+		var file_contents = file.get_as_text().trim_prefix("").trim_suffix("")
+		var num = file_contents.to_int()
+		defaultPort = "COM%d" % num
+		serial.port = defaultPort
+		print("filePort:", defaultPort)
+
+func _on_error(where, what):
+	print_debug("Got error when %s: %s" % [where, what])
+
+func _exit_tree():
+	serial.stop_monitoring()
 
 func _process(delta):
-	if joystick_connected:
-		var message
-		
-#		if joystick_connection_type == CONNECTION_TYPES.SERIAL:
-#			message = serial_port.read_text()
-#		elif joystick_connection_type == CONNECTION_TYPES.WIFI and websocketClient.is_connected_to_host():
-			#while websocketClient.get_available_bytes() > 0:
-#			message = websocketClient.get_utf8_string(websocketClient.get_available_bytes())
-		
-		if message.length() > 0:
-			for i in message:
-				if i == '\n':
-					_command_interpreter(command)
-					command = ''
-				else:
-					command = command + i
+	if not is_multiplayer_authority():	return
+	
+	if joystick_connected and serial.available() > 0:
+		var rec := serial.read_raw(serial.available())
+		_on_data_received(rec)
+	pass
+
+func _on_data_received(data: PackedByteArray):	
+	if data.is_empty(): return
+	
+	var message = data.get_string_from_utf8()
+	
+	message = message.split("\n")
+	
+	if message.is_empty(): return
+	
+	for item in message:
+		if item == "": continue
+		_command_interpreter(item)
 
 func send_command(command):
 	if joystick_connected:
 		print("Joystick:send_command -> ", command)
 #		serial_port.write_text(command + '\n')
 
-func _command_interpreter(command):
+func _command_interpreter(command: String):
+	if not is_multiplayer_authority(): return
+	
 	var action = command.split(':')
+	
+	if action.size() < 3: return
+	
+	if action[0] != "BTN" and action[0] != "AXIS": return
 	
 	#print(command)
 	

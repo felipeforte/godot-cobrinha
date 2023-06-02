@@ -16,9 +16,6 @@ func _ready():
 func _physics_process(delta):
 	if not is_multiplayer_authority():	return
 	
-	print(multiplayer.get_unique_id())
-	print(parent.bodies.size())
-	
 	input = get_input()
 
 	if input == Vector2.ZERO:

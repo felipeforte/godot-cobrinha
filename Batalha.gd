@@ -28,24 +28,35 @@ func pick_random_symbol() -> String:
 	var symbols = ["+", "-", "×", "÷"]
 	return symbols[randi() % symbols.size()]
 
+func _physics_process(delta):
+	_checkBtn()
+
 func _input(event):
-	if Input.is_action_pressed("vermelho"):
+	#_checkBtn()
+	pass
+
+func _checkBtn():
+	if Input.is_action_just_pressed("vermelho"):
 		if btnCorrect == 0:
 			print("correto!")
 		else:
 			print("errado!")
-	if Input.is_action_pressed("verde"):
+	
+	if Input.is_action_just_pressed("verde"):
 		if btnCorrect == 1:
 			print("correto!")
 		else:
 			print("errado!")
-	if Input.is_action_pressed("azul"):
+	
+	if Input.is_action_just_pressed("azul"):
 		if btnCorrect == 2:
 			print("correto!")
 		else:
 			print("errado!")
-	if Input.is_action_pressed("amarelo"):
+	
+	if Input.is_action_just_pressed("amarelo"):
 		if btnCorrect == 3:
 			print("correto!")
 		else:
 			print("errado!")
+	
