@@ -10,14 +10,13 @@ var input = Vector2.ZERO
 
 func _ready():
 	if not is_multiplayer_authority(): return
-	
 	$Area2D/PlayerName.text = "VOCÊ"
 
 func _physics_process(delta):
 	if not is_multiplayer_authority():	return
 	
-	print(multiplayer.get_unique_id())
-	print(parent.bodies.size())
+#	print(multiplayer.get_unique_id())
+#	print(parent.bodies.size())
 	
 	input = get_input()
 
@@ -46,5 +45,3 @@ func _on_area_2d_body_entered(body):
 		PlayerData.delete_food.rpc(body.name)
 		#PlayerData.delete_food.rpc_id(multiplayer.get_unique_id(),body.name)
 		body.queue_free()
-	else:
-		print(body.name)
