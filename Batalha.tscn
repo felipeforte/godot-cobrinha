@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://w1gvsxc0h2tq"]
 
 [ext_resource type="Script" path="res://Batalha.gd" id="1_2w1hm"]
-[ext_resource type="Texture2D" uid="uid://btqh113d61na7" path="res://Assets/Images/bt_amarelo.png" id="2_d3ai5"]
-[ext_resource type="Texture2D" uid="uid://tcxag0n741g7" path="res://Assets/Images/bt_verde.png" id="3_qqy4n"]
-[ext_resource type="Texture2D" uid="uid://dflhv3mjvw2gm" path="res://Assets/Images/bt_vermelho.png" id="4_2j1x4"]
-[ext_resource type="Texture2D" uid="uid://crpdobqiwlihi" path="res://Assets/Images/bt_azul.png" id="5_31fjo"]
+[ext_resource type="Texture2D" uid="uid://02oelst4x6gb" path="res://Assets/Images/bt_amarelo.png" id="2_d3ai5"]
+[ext_resource type="Texture2D" uid="uid://bf1ov3ojrepag" path="res://Assets/Images/bt_verde.png" id="3_qqy4n"]
+[ext_resource type="Texture2D" uid="uid://biyusw67rhb0i" path="res://Assets/Images/bt_vermelho.png" id="4_2j1x4"]
+[ext_resource type="Texture2D" uid="uid://ce0q2fhkvr0ot" path="res://Assets/Images/bt_azul.png" id="5_31fjo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ax6mf"]
 font_size = 32
@@ -12,7 +12,6 @@ font_size = 32
 [node name="Batalha" type="Node2D"]
 process_mode = 3
 process_priority = 1
-z_index = 4096
 script = ExtResource("1_2w1hm")
 
 [node name="Panel" type="Panel" parent="."]

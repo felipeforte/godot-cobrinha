@@ -1,9 +1,2 @@
-res://Player/cobra_cabeca.tscn
-res://JoystickSerial.gd
-res://nivel.tscn
-res://Player/cobrinha.tscn
-res://nivel.gd
-res://Player/cobra_cabeca.gd
-res://Batalha.gd
 res://Batalha.tscn
-res://joyport_config.txt
+res://nivel.tscn

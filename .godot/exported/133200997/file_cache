@@ -1,6 +1,6 @@
 res://Components/Food/comida.tscn::720e3202eff4054ae22e322947916a4e::1685667315::res://.godot/exported/133200997/export-2abd00df65931845d07927cd7a2b9010-comida.scn
 res://Player/cobra_cabeca.tscn::7080879fa40fe67c0faa95f530803f8b::1685667315::res://.godot/exported/133200997/export-64ac138679030b3e053050b04087c5d4-cobra_cabeca.scn
 res://Player/cobra_corpo.tscn::70b398e631d658a7e7c3c7d662887855::1685667315::res://.godot/exported/133200997/export-da11bb5096843d81754c2bce32dec51d-cobra_corpo.scn
-res://Player/cobrinha.tscn::97b0ccbe55610110494e0e57ab4dd844::1685667315::res://.godot/exported/133200997/export-951f5e1983f00d0c68356b812149950c-cobrinha.scn
-res://nivel.tscn::952c622efbe12f27273b1d5f1796436c::1685708911::res://.godot/exported/133200997/export-bd391e80768c019aede88d5dd41342b6-nivel.scn
-res://Batalha.tscn::83774aa3787fd4299e0c26ed3217955f::1685708861::res://.godot/exported/133200997/export-c4092d758d5e9ee1e779bbcdefcab5ea-Batalha.scn
+res://Player/cobrinha.tscn::2b5aeef948b4646721f28b0f2fb37b44::1685712110::res://.godot/exported/133200997/export-951f5e1983f00d0c68356b812149950c-cobrinha.scn
+res://nivel.tscn::582d34901ea8569ca0968cf3d1e04046::1685712110::res://.godot/exported/133200997/export-bd391e80768c019aede88d5dd41342b6-nivel.scn
+res://Batalha.tscn::83774aa3787fd4299e0c26ed3217955f::1685712666::res://.godot/exported/133200997/export-c4092d758d5e9ee1e779bbcdefcab5ea-Batalha.scn
